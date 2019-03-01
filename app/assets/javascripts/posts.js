@@ -1,3 +1,11 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).on('turbolinks:load', function(){
+  var $input = $('#search-form');
+  $input.keyup( function() {
+    $('.post').show();
+    if ($input.val().length >= 3){
+      $('.post-title').filter(function(){
+        return (!$(this).text().includes($input.val()))
+      }).parent().hide();
+    }
+  })
+});
