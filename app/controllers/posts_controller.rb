@@ -17,6 +17,8 @@ class PostsController < ApplicationController
   end
 
   def show
+    @comments = @post.comments.order('id DESC')
+    @comment = Comment.new
     respond_to :js
   end
 

@@ -1,2 +1,4 @@
+$('.modal-title').text('Editar post:')
 $('.modal-body').html("<%= j render 'shared/form', post: @post %>");
+$('.modal-footer').html("");
 $('.modal').modal('show');
