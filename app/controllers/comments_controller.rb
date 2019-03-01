@@ -1,7 +1,9 @@
 class CommentsController < ApplicationController
   def create
+    byebug
     @comment = Comment.new(comment_params)
     @comment.user = current_user
+    @comment.post_id = params[:post_id]
     if @comment.save
       respond_to :js
     else
@@ -12,6 +14,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content, :post_id)
+    params.require(:comment).permit(:content)
   end
 end
