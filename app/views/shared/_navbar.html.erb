@@ -5,13 +5,14 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
-     <% if user_signed_in? %>
-      <li><a href="#" class="nav-link">Hola <%= current_user.name %>!</a></li>
-      <li><%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: 'nav-link' %></li>
-    <% else %>
-      <li><%= link_to 'Inicia sesión', new_user_session_path, class: 'nav-link' %></li>
-      <li><%= link_to 'Regístrate', new_user_registration_path, class: 'nav-link' %></li>
-    <% end %>
+      <li><input id="search-form" class="form-control" type="search" placeholder="Buscar"></li>
+      <% if user_signed_in? %>
+        <li><a href="#" class="nav-link ml-3">Hola <%= current_user.name %>!</a></li>
+        <li><%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: 'nav-link' %></li>
+      <% else %>
+        <li><%= link_to 'Inicia sesión', new_user_session_path, class: 'nav-link ml-3' %></li>
+        <li><%= link_to 'Regístrate', new_user_registration_path, class: 'nav-link' %></li>
+      <% end %>
     </ul>
   </div>
 </nav>

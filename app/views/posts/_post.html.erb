@@ -5,4 +5,5 @@
   <p>
     <%= post.content %>
   </p>
+  <%= link_to 'Eliminar', post_path(post), class: 'btn btn-danger btn-sm', data: { remote:true, method: :delete } %>
 </div>
