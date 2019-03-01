@@ -1,7 +1,6 @@
-<h1>Hola!</h1>
-
-<h2>Nuevo post:</h2>
-<%= render 'shared/form', post: @post %>
+<div class="text-right">
+  <%= link_to "Nuevo post", new_post_path, class: 'btn btn-primary', data: {remote: true} %>
+</div>
 <div id="posts-container">
   <%= render @posts %>
 </div>
