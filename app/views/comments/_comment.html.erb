@@ -1,8 +1,17 @@
-<div class="card mt-3">
-  <div class="card-body">
+<div id="<%= comment.id %>"class="card mt-3 flex-row">
+  <div class="card-body col-11">
     <p><%= comment.content %></p>
-    <footer class="blockquote-footer text-right font-italic">
-      <small><%= comment.user.name %></small>
+    <footer class="blockquote-footer text-italic">
+      <p><%= comment.user.name %></p>
     </footer>
+  </div>
+  <div class="col-1 d-flex justify-content-center align-items-center">
+    <%= link_to comment_likes_path(comment), class:"text-danger", data: { method: :post, remote: true } do %>
+      <% if user_signed_in? and liked?(comment) %>
+        <i class="fas fa-heart"></i>
+      <% else %>
+        <i class="far fa-heart"></i>
+      <% end %>
+    <% end %>
   </div>
 </div>

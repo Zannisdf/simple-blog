@@ -5,14 +5,14 @@
       <%= link_to 'Leer más...', post_path(post), data: { remote: true } %>
       <div>
         <% if post.user == current_user %>
-          <%= link_to edit_post_path(post), data: { remote: true } do %>
+          <%= link_to edit_post_path(post), class: 'ml-1', data: { remote: true } do %>
             <i class="fas fa-edit text-info"></i>
           <% end %>
-          <%= link_to post_path(post), data: { remote:true, method: :delete, confirm: '¿Seguro que desea eliminar este post y todo su contenido?' } do %>
-            <i class="fas fa-times-circle text-danger"></i>
+          <%= link_to post_path(post), class: 'ml-1', data: { remote:true, method: :delete, confirm: '¿Seguro que desea eliminar este post y todo su contenido?' } do %>
+            <i class="far fa-times-circle text-danger"></i>
           <% end %>
         <% end %>
-        <%= link_to post_favourite_path(post), data: { remote: true, method: :post } do %>
+        <%= link_to post_favourite_path(post), class: 'ml-1', data: { remote: true, method: :post } do %>
           <% if user_signed_in? and favourite?(post) %>
             <i class="fas fa-star text-warning"></i>
           <% else %>
