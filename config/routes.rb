@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :posts do
+    post 'favourite', to: 'favourites#set_favourite'
     resources :comments, only: :create
   end
   root 'posts#index'
