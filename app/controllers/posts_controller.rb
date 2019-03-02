@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
+  before_action :check_permission, only: %i[update destroy]
 
   def index
     @posts = Post.order('id DESC')
   end
-  
+
   def new
     @post = Post.new
     respond_to :js
@@ -47,6 +48,10 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def check_permission
+    redirect_to root_path, alert: 'No posee los permisos necesarios.' and return unless @post.user == current_user
   end
 
   def post_params

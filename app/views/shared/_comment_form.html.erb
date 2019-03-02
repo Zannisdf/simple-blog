@@ -1,7 +1,10 @@
 <%= form_with(model: [post, comment]) do |f| %>
-  <div class="form-group">
-    <%= f.label :content %>
+  <div id="commentForm" class="form-group">
+    <div class="d-flex justify-content-between">
+      <%= f.label :content, 'Dejar un comentario:' %>
+      <span id="charCount"></span>
+    </div>
     <%= f.text_area :content, class: 'form-control comment-field' %>
   </div>
-  <%= f.submit 'Enviar', class: 'btn btn-success btn-sm' %>
+  <%= f.submit 'Enviar', class: 'btn btn-success btn-sm', id: 'submitComment' %>
 <% end %>
