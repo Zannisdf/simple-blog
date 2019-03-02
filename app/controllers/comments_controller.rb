@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
   def create
-    byebug
     @comment = Comment.new(comment_params)
     @comment.user = current_user
     @comment.post_id = params[:post_id]

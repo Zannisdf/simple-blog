@@ -4,8 +4,8 @@ $(document).on('turbolinks:load', function(){
     $('.post').show();
     if ($input.val().length >= 3){
       $('.post-title').filter(function(){
-        return (!$(this).text().includes($input.val()))
-      }).parent().hide();
+        return (!$(this).text().toLowerCase().includes($input.val().toLowerCase()));
+      }).parent().parent().hide();
     }
   })
 });
