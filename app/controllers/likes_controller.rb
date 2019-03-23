@@ -1,4 +1,6 @@
 class LikesController < ApplicationController
+  load_and_authorize_resource
+  
   def create
     @like = Like.find_or_create_by(
       user: current_user,

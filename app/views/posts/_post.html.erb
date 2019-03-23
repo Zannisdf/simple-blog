@@ -12,13 +12,18 @@
             <i class="far fa-times-circle text-danger"></i>
           <% end %>
         <% end %>
-        <%= link_to post_favourite_path(post), class: 'ml-1', data: { remote: true, method: :post } do %>
-          <% if user_signed_in? and favourite?(post) %>
-            <i class="fas fa-star text-warning"></i>
-          <% else %>
-            <i class="far fa-star text-warning"></i>
+        
+        <% if can? :set_favourite, Favourite %>
+          <%= link_to post_favourite_path(post), class: 'ml-1', data: { remote: true, method: :post } do %>
+            <% if user_signed_in? and favourite?(post) %>
+              <i class="fas fa-star text-warning"></i>
+            <% else %>
+              <i class="far fa-star text-warning"></i>
+            <% end %>
           <% end %>
+          
         <% end %>
+        
       </div>
     </div>
   </div>

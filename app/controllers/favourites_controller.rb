@@ -1,5 +1,6 @@
 class FavouritesController < ApplicationController
   before_action :set_post
+  load_and_authorize_resource
 
   def set_favourite
     current = Favourite.find_or_create_by(user: current_user, post: @post)
