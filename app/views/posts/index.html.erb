@@ -1,5 +1,23 @@
-<div id="posts-container">
-  <%= render @posts %>
-</div>
+<section id="home" class="main-home">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Welcome to Bastion</h1>
+        <h4>Learn how to code for free</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blog">
+  <div class="container">
+    <div id="posts-container" class="row">
+      <div class="offset-md-1 col-md-10 col-sm-12">
+        <%= render @posts %>
+      </div>
+    </div>
+  </div>
+</section>
 
 <%= render 'shared/modal' %>
