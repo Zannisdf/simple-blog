@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+.modal-dialog {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.modal-content{
+  border-radius: 0;
+}
+
+@media (min-width: 600px){
+  .modal-dialog{
+    min-width: 80vw;
+  }
+}

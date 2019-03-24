@@ -1,11 +1,11 @@
 <div id="<%= post.id %>" class="blog-post-thumb">
   <div class="blog-post-image">
-    <%= link_to post_path(post), data: { remote: true } do %>
-      <img src="images/blog-image1.jpg" class="img-fluid" alt="Blog Image">
+    <%= link_to post_path(post) do %>
+      <img src="#" class="img-fluid" alt="Blog Image">
     <% end %>
   </div>
   <div class="blog-post-title">
-    <h3 class="post-title card-title"><%= link_to post.title, post_path(post), data: { remote: true } %></h3>
+    <h3 class="post-title card-title"><%= link_to post.title, post_path(post) %></h3>
   </div>
   <div class="blog-post-format d-flex justify-content-between">
     <div>
@@ -16,7 +16,7 @@
         <% end %>
       </span>
       <span>
-        <%= post.creation_date %>
+        <%= creation_date(post) %>
       </span>
       <span>
         <%= link_to '#' do %>
@@ -39,6 +39,6 @@
   </div>
   <div class="blog-post-des">
     <p><%# post.description %>asdf</p>
-    <%= link_to 'Continue reading', post_path(post), data: { remote: true }, class: 'btn btn-outline-secondary' %>
+    <%= link_to 'Continue reading', post_path(post), class: 'btn btn-outline-secondary' %>
   </div>
 </div>

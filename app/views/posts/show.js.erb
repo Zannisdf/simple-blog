@@ -1,7 +1,0 @@
-$('.modal-title').text('<%= @post.title %>');
-$('.modal-body').html('<p class="post-content"><%= @post.content %></p>');
-<% if user_signed_in? %>
-  $('.modal-footer').html("<%= j render 'shared/comment_form', {comment: @comment, post: @post} %>")
-<% end %>
-$('.modal-footer').append("<div id='comments-container'><%= j render @comments %></div>");
-$('.modal').modal('show');

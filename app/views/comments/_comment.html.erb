@@ -1,17 +1,37 @@
-<div id="<%= comment.id %>"class="card mt-3 flex-row">
-  <div class="card-body col-11">
-    <p><%= comment.content %></p>
-    <footer class="blockquote-footer text-italic">
-      <p><%= comment.user.name %></p>
-    </footer>
-  </div>
-  <div class="col-1 d-flex justify-content-center align-items-center">
-    <%= link_to comment_likes_path(comment), class:"text-danger", data: { method: :post, remote: true } do %>
-      <% if user_signed_in? and liked?(comment) %>
-        <i class="fas fa-heart"></i>
-      <% else %>
-        <i class="far fa-heart"></i>
+<div id="<%= comment.id %>">
+  <div class="blog-post-format d-flex justify-content-between">
+    <div>
+      <span>
+        <%= link_to '#' do %>
+          <img src="#" class="img-fluid rounded-circle">
+          <%= comment.user.name %>
+        <% end %>
+      </span>
+      <span>
+        <%= creation_date(comment) %>
+      </span>
+      <span>
+        <%= link_to comment_likes_path(comment), class:"text-danger", data: { method: :post, remote: true } do %>
+          <% if user_signed_in? and liked?(comment) %>
+            <i class="fas fa-heart"></i>
+          <% else %>
+            <i class="far fa-heart"></i>
+          <% end %>
+          <%= comment.likes.count %>
+        <% end %>
+      </span>
+    </div>
+    <div>
+      <% if can? :update, comment %>
+        <span>
+          <%= link_to '#' do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+        </span>
       <% end %>
-    <% end %>
+    </div>
+  </div>
+  <div>
+    <p><%= comment.content %></p>
   </div>
 </div>

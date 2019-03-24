@@ -1,0 +1,52 @@
+<section id="blog-single-post">
+  <div class="container">
+    <div class="row">
+      <div class="offset-md-1 col-md-10 col-sm-12">
+        <div class="blog-single-post-thumb">
+          <div class="blog-post-title">
+            <h2><%= @post.title %></h2>
+          </div>
+          <div class="blog-post-format">
+            <span>
+              <%= link_to '#' do %>
+                <img src="#" class="img-fluid rounded-circle">
+                <%= @post.user.name %>
+              <% end %>
+            </span>
+            <span>
+              <%= creation_date(@post) %>
+            </span>
+            <span>
+              <%= link_to '#' do %>
+                <i class="far fa-comment"></i>
+                <%= @post.comments.count %> comments
+              <% end %>
+            </span>
+          </div>
+          <div class="blog-post-desc">
+            <p><%= @post.content %></p>
+          </div>
+          <div class="blog-author">
+            <div class="media">
+              <div class="media-object float-left">
+                <img src="#" alt="">
+              </div>
+              <div class="media-body">
+                <h3 class="media-heading"><a href="#"><%= @post.user.name %></a></h3>
+                <%# post.user.description %>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, libero. Voluptatum necessitatibus similique expedita pariatur temporibus? Similique, fuga quia odit saepe voluptatem, incidunt reiciendis natus, eius numquam iusto quas praesentium.</p>
+              </div>
+            </div>
+          </div>
+          <div class="blog-comment-form">
+              <%= render 'shared/comment_form', { post: @post, comment: @comment } %>
+          </div>
+          <h3>Comments</h3>
+          <div class="blog-comment">
+            <%= render @comments %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

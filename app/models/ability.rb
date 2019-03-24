@@ -9,10 +9,9 @@ class Ability
       unless user.visit?
         can :create, Like, user_id: user.id
         can :set_favourite, Favourite, user_id: user.id
-        if user.user? 
-          can :create, Comment
-          can :update, Comment, user_id: user.id
-        elsif user.author?  
+        can :create, Comment
+        can :update, Comment, user_id: user.id
+        if user.author?
           can :create, Post
           can :update, Post, user_id: user.id
         elsif user.moderator?
