@@ -21,7 +21,7 @@
       <span>
         <%= link_to '#' do %>
           <i class="far fa-comment"></i>
-          <%= post.comments.count %> comments
+          <%= pluralize(post.comments.count, 'comment') %> 
         <% end %>
       </span>
     </div>
